@@ -136,6 +136,21 @@ body{
     align-items: flex-start;
     text-align: justify;
 }
+
+.chatImg{
+    object-fit: cover;
+    width: 3.5rem;
+    margin-right: 2rem;
+    border-radius: 0.5rem;
+}
+
+.bot{
+    background: rgba(28,30 ,58 ,1 );
+    width: fit-content;
+    border-radius: 0.5rem;
+
+
+}
 .chatFooter{
     margin-top: auto;
     width: 100%;
@@ -152,7 +167,7 @@ body{
     display: flex;
     align-items: center;
     border-radius: .5rem;
-    width: 65rem;
+    width: 68rem;
 }
 
 .inp>input {

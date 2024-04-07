@@ -8,7 +8,15 @@ import upgrade from './assets/rocket.svg';
 import send from './assets/send.svg';
 import userIcon from './assets/user-icon.png';
 import gptImgLogo from './assets/chatgptLogo.svg';
+import { sendMessageToOpenAI } from './openAI';
+import { useState } from 'react';
+
 function App() {
+  const [Input,setInput]= useState("");
+  const handleSend= async ()=>{
+    const res= await sendMessageToOpenAI(Input)
+    console.log(res)
+  }
   return (
     <div className="App">
       <div className='sidebar'>
@@ -49,7 +57,7 @@ function App() {
             <img className='chatImg' src={userIcon} alt='logo of chatgpt' />
             <p className='txt'>This is the content inside the chat app that is shown in the screen</p>
           </div>
-          <div className='chat'>
+          <div className='chat bot'>
             <img className='chatImg' src={gptImgLogo} alt='logo of chatgpt' />
             <p className='txt'>This is the content inside the chat app that is shown in the screen
               This is the content inside the chat app that is shown in the screen
@@ -62,8 +70,8 @@ function App() {
         </div>
         <div className='chatFooter'>
           <div className='inp'>
-            <input type='text' placeholder='Enter the message' />
-            <button className='send'>
+            <input type='text' placeholder='Enter the message' value={Input}  onChange={(e)=>{setInput(e.target.value)}}/>
+            <button className='send' onClick={handleSend}>
               <img src={send} alt='Send' />
             </button>
           </div>
